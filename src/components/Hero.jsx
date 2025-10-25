@@ -1,11 +1,20 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Copy, Check } from "lucide-react";
 
 export default function Hero() {
   const address = "pCo9TrFstWCLqp5bs4KPhxS73bf5ijXoEX4vzJVD5pump";
   const displayAddress = `${address.slice(0, 10)}…${address.slice(-10)}`;
   const [copied, setCopied] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   const handleCopy = async () => {
     try {
@@ -18,7 +27,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="section" style={{ position: "relative" }}>
+    <section className="section hero" style={{ position: "relative" }}>
       <div className="container">
         <div className="grid" style={{ alignItems: "center" }}>
           <div style={{ gridColumn: "1 / -1", textAlign: "center" }}>
@@ -107,7 +116,7 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               style={{
                 width: "100%",
-                maxWidth: 680,
+                maxWidth: isDesktop ? 1000 : 680,
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 12,
@@ -128,12 +137,12 @@ export default function Hero() {
                   fontSize: 14,
                   color: '#d7d7d7',
                   letterSpacing: '0.03em',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
+                  overflow: isDesktop ? 'visible' : 'hidden',
+                  textOverflow: isDesktop ? 'clip' : 'ellipsis',
                   whiteSpace: 'nowrap',
                 }}
               >
-                {displayAddress}
+                {isDesktop ? address : displayAddress}
               </code>
               <motion.button
                 className="btn"
