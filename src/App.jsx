@@ -4,6 +4,7 @@ import CursorGlow from "./components/CursorGlow";
 import Hero from "./components/Hero";
 import Moment from "./components/Moment";
 import Manifesto from "./components/Manifesto";
+import OneTime from "./components/OneTime";
 import Community from "./components/Community";
 import Prayer from "./components/Prayer";
 import "./App.css";
@@ -30,6 +31,7 @@ function App() {
       <Hero />
       <Moment />
       <Manifesto />
+      <OneTime />
       <Community />
       <Prayer />
     </>
