@@ -24,7 +24,7 @@ export default function Community() {
           >
             <motion.a
               className="btn"
-              href="https://x.com"
+              href="https://x.com/i/communities/1982030521283567649"
               target="_blank"
               rel="noreferrer"
               whileHover={{ scale: 1.02 }}

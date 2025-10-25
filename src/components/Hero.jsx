@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 import { Copy, Check } from "lucide-react";
 
 export default function Hero() {
-  const address = "pCo9TrFstWCLqp5bs4KPhxS73bf5ijXoEX4vzJVD5pump";
+  const address = "abc123XYZ456s4KPhxS73bf5ijXoEX4vzJVD5pump";
   const displayAddress = `${address.slice(0, 10)}…${address.slice(-10)}`;
   const [copied, setCopied] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
+    const mq = window.matchMedia("(min-width: 768px)");
     const update = () => setIsDesktop(mq.matches);
     update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
   const handleCopy = async () => {
@@ -94,6 +94,9 @@ export default function Hero() {
           >
             <motion.button
               className="btn"
+              href="https://x.com/i/communities/1982030521283567649"
+              target="_blank"
+              rel="noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.99 }}
             >
@@ -101,6 +104,9 @@ export default function Hero() {
             </motion.button>
             <motion.button
               className="btn"
+              href="https://dexscreener.com/solana"
+              target="_blank"
+              rel="noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.99 }}
             >
@@ -109,7 +115,14 @@ export default function Hero() {
           </div>
 
           {/* Contract address + copy */}
-          <div style={{ gridColumn: "1 / -1", display: "flex", justifyContent: "center", marginTop: 16 }}>
+          <div
+            style={{
+              gridColumn: "1 / -1",
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 16,
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -133,13 +146,13 @@ export default function Hero() {
                   flex: 1,
                   minWidth: 0,
                   fontFamily:
-                    'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", monospace',
+                    'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace',
                   fontSize: 14,
-                  color: '#d7d7d7',
-                  letterSpacing: '0.03em',
-                  overflow: isDesktop ? 'visible' : 'hidden',
-                  textOverflow: isDesktop ? 'clip' : 'ellipsis',
-                  whiteSpace: 'nowrap',
+                  color: "#d7d7d7",
+                  letterSpacing: "0.03em",
+                  overflow: isDesktop ? "visible" : "hidden",
+                  textOverflow: isDesktop ? "clip" : "ellipsis",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {isDesktop ? address : displayAddress}
@@ -149,7 +162,7 @@ export default function Hero() {
                 onClick={handleCopy}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.99 }}
-                style={{ padding: '8px 12px' }}
+                style={{ padding: "8px 12px" }}
               >
                 {copied ? (
                   <>
