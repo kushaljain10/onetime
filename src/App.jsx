@@ -17,12 +17,19 @@ function App() {
       smoothWheel: true,
       smoothTouch: false,
     });
-    function raf(time) {
+
+    let frameId;
+    const raf = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    return () => lenis.destroy();
+      frameId = requestAnimationFrame(raf);
+    };
+
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      lenis.destroy();
+    };
   }, []);
 
   return (
