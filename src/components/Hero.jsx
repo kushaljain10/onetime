@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Copy, Check } from "lucide-react";
 
 export default function Hero() {
-  const address = "2oEdxe4qBucFi6JgmqUrubF6HS2VjndmqHqYmuBBpump";
+  const address = "Dib2h96F6NK3Zy5D938w7DvHpWsjwMTmY5fjdNmppump";
   const displayAddress = `${address.slice(0, 10)}…${address.slice(-10)}`;
   const [copied, setCopied] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
