@@ -64,7 +64,7 @@ export default function Hero() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div
+              {/* <div
                 className="aura-ring glow-ring"
                 style={{
                   width: "clamp(160px,45vw,420px)",
@@ -80,7 +80,7 @@ export default function Hero() {
                   alt="$ONETIME logo"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-              </div>
+              </div> */}
             </motion.div>
           </div>
 
